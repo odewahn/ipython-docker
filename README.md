@@ -9,6 +9,16 @@
 * python stuff require to run ipython-notebook
 
 
+## Building the docker image
+
+To build this into an image, start boot2docker (see below) and run:
+
+```
+sudo docker build odewahn/ipython-docker .
+```
+
+This will create a base image that you can install content on.
+
 ## Running under boot2docker
 
 The first step is to install or upgrade boot2docker.  
