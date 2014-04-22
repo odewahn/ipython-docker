@@ -19,6 +19,7 @@ sudo docker build odewahn/ipython-docker .
 
 This will create a base image that you can install content on.
 
+
 ## Running under boot2docker
 
 The first step is to install or upgrade boot2docker.  
