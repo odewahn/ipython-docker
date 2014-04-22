@@ -4,9 +4,6 @@ MAINTAINER Andrew Odewahn "odewahn@oreilly.com"
 RUN apt-get update
 RUN apt-get install -y libfreetype6-dev libpng-dev libncurses5-dev vim git-core build-essential curl unzip
 
-ADD scripts /tmp/scripts
-=======
-
 # Copy various install scripts to the container
 ADD scripts /tmp/scripts
 
