@@ -11,10 +11,10 @@ RUN apt-get install -y libfreetype6-dev libpng-dev libncurses5-dev vim git-core 
 RUN gem install bundler atlas-api atlas2ipynb
 
 # Install ipython notebook requirements
+RUN pip install --upgrade pip
 ADD requirements.txt /tmp/requirements.txt
 RUN pip install numpy==1.7.1
-#RUN pip install -r /tmp/requirements.txt --allow-unverified matplotlib --allow-all-external
-#RUN pip install -r /tmp/requirements.txt --allow-all-external
+RUN pip install -r /tmp/requirements.txt --allow-unverified matplotlib --allow-all-external
 
 
 # Now install ipython notebook specific stuff
