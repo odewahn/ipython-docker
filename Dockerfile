@@ -8,7 +8,6 @@ RUN apt-get install -y libfreetype6-dev libpng-dev libncurses5-dev vim git-core 
 ADD scripts /tmp/scripts
 
 # Install ruby
-RUN chmod +x /tmp/scripts/rbenv.sh
 RUN /tmp/scripts/rbenv.sh
 RUN rbenv global 1.9.3-p0
 
