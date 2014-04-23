@@ -7,13 +7,15 @@ This project provides a Docker container for running Atlas projects as iPython N
 To build this into an image, start boot2docker (see below) and run:
 
 ```
+git clone https://github.com/odewahn/ipython-docker.git
+cd base
 sudo docker build -t odewahn/ipython-docker .
 ```
 
 This will create a base image that you can install content on.  Note that if you want to rebuild the image from scratch, you should use the "--no-cache" option, like this:
 
 ```
-sudo docker build -t odewahn/ipython-docker .
+sudo docker build --no-cache -t odewahn/ipython-docker .
 ```
 
 ## Building a content image
@@ -21,6 +23,8 @@ sudo docker build -t odewahn/ipython-docker .
 Use the Dockerfile.content repo to actually put content onto the base-box so that someone can view the project.  
 
 ```
+git clone https://github.com/odewahn/ipython-docker.git
+cd content
 docker build --no-cache -t odewahn/test2 .
 docker run -i -t -p 8888:8888 odewahn/test2 /home/docker/content/start.sh
 ```
