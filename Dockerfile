@@ -19,4 +19,3 @@ RUN pip install -r /tmp/requirements.txt --allow-unverified matplotlib --allow-a
 
 # Now install ipython notebook specific stuff
 RUN adduser --disabled-password --home=/home/docker --gecos "" docker
-RUN echo 'alias nbserver="ipython notebook --ip=0.0.0.0 --port=8888 --pylab=inline --no-browser"'  >> /etc/profile
