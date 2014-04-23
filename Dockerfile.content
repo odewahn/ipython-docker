@@ -1,0 +1,13 @@
+#
+# This is a sample dockerfile for spinning up a content image
+# Basically, it starts the base box and then uses the 
+# atlas api to load up the content
+#
+FROM odewahn/ipython-docker
+MAINTAINER Andrew Odewahn "odewahn@oreilly.com" 
+
+USER docker
+WORKDIR /home/docker
+RUN atlas2ipynb qexSCMsc2fKDTFEDLfm9 odewahn/python-data-analysis-ipynb-test
+WORKDIR /home/docker/python-data-analysis-ipynb-test
+CMD ["nbserver"]
