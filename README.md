@@ -1,13 +1,6 @@
+# iPython Docker
 
-
-
-* ruby 1.9.3
-* gems
-** atlas-api
-** atlas2ipynb
-
-* python stuff require to run ipython-notebook
-
+This project provides a Docker container for running Atlas projects as iPython Notebooks.  It's based on 
 
 ## Building the docker image
 
@@ -64,7 +57,7 @@ docker pull username/image-name
 Then, once you're at a command prompt, you can start a container, like this:
 
 ```
-docker run -p 8888:8888 odewahn/learning-data-science /root/pynb/start.sh
+docker run -i -t -p 8888:8888 odewahn/ipython-docker /bin/bash
 ```
 
 
