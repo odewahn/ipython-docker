@@ -13,8 +13,8 @@ USER atlas
 # Use atlas-api to build the project and install it on the docker image
 #
 WORKDIR /home/atlas
-RUN atlas2ipynb qexSCMsc2fKDTFEDLfm9 odewahn/python-data-analysis-ipynb-test
-RUN mv python-data-analysis-ipynb-test content
+RUN atlas2ipynb qexSCMsc2fKDTFEDLfm9 odewahn/ruby-cookbook-2e
+RUN mv ruby-cookbook-2e content
 #
 # Create the command to actually run the ipython notebook
 #

@@ -2,6 +2,22 @@
 
 This project provides a Docker container for running Atlas projects as iPython Notebooks.  It's based on the [ipython-notebox VM](https://github.com/odewahn/ipython-notebox).
 
+## Overview
+
+The goal of this project is to create a smooth way to deploy [Atlas](https://atlas.oreilly.com) projects into a live coding environment.  The approach is:
+
+* You create a project in Atlas
+* You mark a code sample as "executable"
+* The project is converted into an ipython-notebook using the [atlas2ipynb](https://github.com/odewahn/atlas2ipynb) gem
+* The content is packaged onto a Docker base image to make a new "content" image
+
+This repo has the Dockerfiles required for this to work.  There are two folders:
+
+* The *base* folder.  This folder contains a Dockerfile that installs the ipyhton notebook server and its dependencies, the atlas-api and atlas2ipynb gems, and the various other tools.
+* The *content* folder.  This folder contains a Dockerfile that will build a content image.  It inherits from the base box, and then installs a content project on the image using the atlas2ipynb gem.  You can also add additional dependencies here that might be specifically required by the project.  
+
+You build the content image for your Atlas project, and then run it locally (see boot2docker below) or push it to a cloud system like [pyxie](http://www.pyxie.io).
+
 ## Building the base docker image
 
 To build this into an image, start boot2docker (see below) and run:
