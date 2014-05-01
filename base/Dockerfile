@@ -14,3 +14,15 @@ RUN pip install --upgrade pip
 ADD requirements.txt /tmp/requirements.txt
 RUN pip install numpy==1.7.1
 RUN pip install -r /tmp/requirements.txt --allow-unverified matplotlib --allow-all-external
+
+#
+# Create the command to actually run the ipython notebook
+#
+RUN adduser --disabled-password --home=/home/atlas --gecos "" atlas
+USER atlas
+WORKDIR /home/atlas/content
+RUN echo '#!/bin/sh' > start.sh
+RUN echo 'ipython notebook --ip=0.0.0.0 --port=8888 --pylab=inline --no-browser'  >> start.sh
+RUN chmod +x start.sh
+
+

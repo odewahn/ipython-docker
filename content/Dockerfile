@@ -6,20 +6,11 @@
 FROM odewahn/ipython-docker
 MAINTAINER Andrew Odewahn "odewahn@oreilly.com" 
 
-RUN adduser --disabled-password --home=/home/atlas --gecos "" atlas
-USER atlas
 
 #
 # Use atlas-api to build the project and install it on the docker image
 #
+USER atlas
 WORKDIR /home/atlas
 RUN atlas2ipynb qexSCMsc2fKDTFEDLfm9 odewahn/atlas2ipynb-sample
-RUN mv atlas2ipynb-sample content
-#
-# Create the command to actually run the ipython notebook
-#
-WORKDIR /home/atlas/content
-RUN echo '#!/bin/sh' > start.sh
-RUN echo 'ipython notebook --ip=0.0.0.0 --port=8888 --pylab=inline --no-browser'  >> start.sh
-RUN chmod +x start.sh
 
