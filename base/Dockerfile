@@ -20,7 +20,7 @@ RUN pip install -r /tmp/requirements.txt --allow-unverified matplotlib --allow-a
 #
 RUN adduser --disabled-password --home=/home/atlas --gecos "" atlas
 USER atlas
-WORKDIR /home/atlas/content
+WORKDIR /home/atlas
 RUN echo '#!/bin/sh' > start.sh
 RUN echo 'ipython notebook --ip=0.0.0.0 --port=8888 --pylab=inline --no-browser'  >> start.sh
 RUN chmod +x start.sh

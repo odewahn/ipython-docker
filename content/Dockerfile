@@ -3,7 +3,7 @@
 # Basically, it starts the base box and then uses the 
 # atlas api to load up the content
 #
-FROM odewahn/ipython-docker
+FROM odewahn/atlas-base
 MAINTAINER Andrew Odewahn "odewahn@oreilly.com" 
 
 

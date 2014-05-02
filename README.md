@@ -31,7 +31,7 @@ sudo docker build -t odewahn/ipython-docker .
 This will create a base image that you can install content on.  Note that if you want to rebuild the image from scratch, you should use the "--no-cache" option, like this:
 
 ```
-sudo docker build --no-cache -t odewahn/ipython-docker .
+sudo docker build --no-cache -t odewahn/atlas-base .
 ```
 
 ## Building a content image
