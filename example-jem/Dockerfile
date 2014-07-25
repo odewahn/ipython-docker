@@ -19,8 +19,8 @@ RUN apt-get install -y gfortran
 RUN apt-get install -y gcc-multilib
 RUN apt-get install -y lynx 
 RUN apt-get install -y emacs23-nox 
-RUN apt-get install -y glpk 
-RUN apt-get install -y python-glpk
+#RUN apt-get install -y glpk 
+#RUN apt-get install -y python-glpk
 
 
 #
@@ -29,9 +29,9 @@ RUN apt-get install -y python-glpk
 RUN pip install scipy
 RUN pip install neurolab
 RUN pip install hyperloglog                                      
-RUN pip install countminsketch
+#RUN pip install countminsketch
 RUN pip install pybloom               
-RUN pip install lshash
+#RUN pip install lshash
 
 
 #
@@ -41,4 +41,4 @@ RUN pip install lshash
 #
 USER atlas
 WORKDIR /home/atlas
-RUN atlas2ipynb $ATLAS_KEY odewahn/jem-docker
+RUN atlas2ipynb qexSCMsc2fKDTFEDLfm9 odewahn/jem-docker
