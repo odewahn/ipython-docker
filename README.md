@@ -31,7 +31,7 @@ sudo docker build -t odewahn/atlas-base .
 This will create a base image that you can install content on.  Note that if you want to rebuild the image from scratch, you should use the "--no-cache" option, like this:
 
 ```
-sudo docker build --no-cache -t odewahn/atlas-base .
+sudo docker build --no-cache --tag odewahn/atlas-base .
 ```
 
 ## Building a content image
@@ -41,7 +41,7 @@ Use the Dockerfile.content repo to actually put content onto the base-box so tha
 ```
 git clone https://github.com/odewahn/ipython-docker.git
 cd ipython-docker/content
-docker build --no-cache -t odewahn/test2 .
+docker build --no-cache --tag odewahn/test2 .
 docker run -i -t -p 8888:8888 odewahn/test2 /home/atlas/content/start.sh
 ```
 
