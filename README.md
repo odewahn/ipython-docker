@@ -25,13 +25,13 @@ To build this into an image, start boot2docker (see below) and run:
 ```
 git clone https://github.com/odewahn/ipython-docker.git
 cd ipython-docker/base
-sudo docker build -t odewahn/atlas-base .
+sudo docker build --no-cache --tag odewahn/atlas-base .
 ```
 
 This will create a base image that you can install content on.  Note that if you want to rebuild the image from scratch, you should use the "--no-cache" option, like this:
 
 ```
-sudo docker build --no-cache --tag odewahn/atlas-base .
+docker build --no-cache --tag odewahn/atlas-base .
 ```
 
 ## Building a content image
