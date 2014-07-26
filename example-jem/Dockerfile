@@ -11,33 +11,34 @@ FROM odewahn/atlas-base
 MAINTAINER Andrew Odewahn "odewahn@oreilly.com" 
 
 #
-# Install systemwide requirements as ROOT
+# Install systemwide requirements
 #
 
-RUN sudo apt-get install -y python-pip python-dev build-essential libatlas-base-dev 
-RUN sudo apt-get install -y gfortran gcc-multilib lynx emacs23-nox 
-#RUN sudo apt-get install -y glpk python-glpk
+RUN apt-get install -y libatlas-base-dev 
+RUN apt-get install -y gfortran 
+RUN apt-get install -y gcc-multilib
+RUN apt-get install -y lynx 
+RUN apt-get install -y emacs23-nox 
+RUN apt-get install -y glpk 
+RUN apt-get install -y python-glpk
 
 
 #
-# Install project level requirements as atlas user
+# Install python packages using pip
 #
+RUN pip install scipy
+RUN pip install neurolab
+RUN pip install hyperloglog                                      
+RUN pip install countminsketch
+RUN pip install pybloom               
+RUN pip install lshash
 
+
+#
+# Install content using atlas-api to build the project
+# Be sure to set ATLAS_KEY as an environment variable!
+#   export ATLAS_KEY=<your atlas API key>
+#
 USER atlas
 WORKDIR /home/atlas
-
-#
-# Use atlas-api to build the project and install it on the docker image
-#
-pip install scipy
-pip install neurolab
-pip install hyperloglog                                      
-pip install countminsketch # or build from GitHub repo
-pip install pybloom               
-pip install lshash # or build from PyPi tarball
-
-
-#
-# Install content
-#
-RUN atlas2ipynb $ATLAS_KEY $ATLAS_PROJECT odewahn/jem-docker
+RUN atlas2ipynb $ATLAS_KEY odewahn/jem-docker
