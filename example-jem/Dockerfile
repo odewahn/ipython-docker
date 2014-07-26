@@ -7,7 +7,7 @@
 #
 #   export ATLAS_KEY=<your atlas API key>
 #
-FROM odewahn/atlas-base-new
+FROM odewahn/atlas-base
 MAINTAINER Andrew Odewahn "odewahn@oreilly.com" 
 
 #
